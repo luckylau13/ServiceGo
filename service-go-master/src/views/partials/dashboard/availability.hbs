@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col ml-5 mt-5">
+        <div class="card-body ">
+            <div class="alert alert-success" id="show-success" style="display: none"></div>
+            <table class="table table-striped" border="1" style=" background-color: aliceblue;">
+                <tr class="bg-info">
+
+                    <th>Day</th>
+                    <th>Hours</th>
+                    <th>Availability(Yes/No)</th>
+                </tr>
+                {{#each availability}}
+                <tr>
+                    <td>{{day}}</td>
+                    <td>{{hours}}</td>
+                    <td>
+                        <div class="row">
+                            <div class="col-2">
+                                <label>Yes</label>
+                            </div>
+
+                            <div class="col">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="avi{{id}}" />
+                                    <label class="custom-control-label" for="avi{{id}}">No</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+            <div class="col" style="text-align: center;">
+                <button class="button btn btn-primary" style="text-align: center" onclick="changeAvailability()">Change
+                    Availability</button>
+            </div>
+        </div>
+    </div>
+</div>

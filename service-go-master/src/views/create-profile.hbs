@@ -1,0 +1,111 @@
+<div class="create-profile">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <form id="createProfileForm" method="POST" action="/user/create-profile">
+                <div class="card mt-5">
+                    <div class="card-header info-color-dark white-text text-center py-4">
+                        <h3> Create the Profile first!</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="firstName">Name</label>
+                                    <input class="form-control" id="firstName" value="{{user.name}}" type="text"
+                                        name=" name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="handle">Handle</label>
+                                    <input class="form-control" id="handle" type="text" name="handle"
+                                        placeholder="Unique handler for your account..." required>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <img alt="User Pic" style="height: 10rem; width: 10rem;"
+                                    src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+                                    id="profile-image" class="img-circle img-responsive"
+                                    onclick="$('#profile-image-upload').trigger('click')">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="phone" placeholder="eg.0412345..." name="phone"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="address">Address<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="address" type="text" name="address"
+                                        onFocus="geolocate()" value="{{profile.address}}">
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="checkbox" name="provider" id="who" onclick="onClickWho()">
+                                    <label for="who">Are you a service provider?</label>
+                                </div>
+                            </div>
+                            <div class="col-12 sp-section" style="display: none;">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label>Service Category</label>
+                                            <select class="form-control" name="category">
+                                                <option value=""></option>
+                                                {{#each categories}}
+                                                <option value="{{type}}">{{type}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea class="form-control" rows="3" name="description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="submitCreateProfile()" style="color: aliceblue;"
+                                class="btn info-color-dark" name="subbtn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+<script src="/javascripts/create-profile.js"></script>
+<script>
+    var autocomplete;
+    function initAutoAddress() {
+        // Create the autocomplete object, restricting the search predictions to
+        // geographical location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('address'), { types: ['geocode'] });
+        autocomplete.setFields(['address_component']);
+    }
+
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var circle = new google.maps.Circle(
+                    { center: geolocation, radius: position.coords.accuracy });
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1kQT0HXtFUXpp3CQnMBbnAvLzJ3C3_6c&libraries=places&callback=initAutoAddress"
+    async defer></script>

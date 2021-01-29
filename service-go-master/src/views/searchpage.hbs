@@ -1,0 +1,32 @@
+<div class="searchpage">
+    <div class="left-form">
+        <div class="search-logo-container">
+            <img onclick="window.location.href = '/'" src="images/service_white.png" alt="Logo" style="cursor: pointer;"
+                class="search-logo">
+        </div>
+        <div class="t-maps">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" name="togglemap" class="custom-control-input" id="togglemap"
+                    onchange="showMap()">
+                <label class="custom-control-label" for="togglemap">Toogle Map View</label>
+            </div>
+        </div>
+        {{>search-form}}
+    </div>
+    <div class="right-display">
+        <div id="default-img">
+            <img src="images/gardener.png" class="garden img-fluid">
+            <h1>Search first, buddy!</h1>
+        </div>
+        <div id="loading" class="mt-3" style="display: none;">
+            <img src="images/loading.gif">
+        </div>
+        <div id="list-of-profiles"></div>
+        <div id="searchmap"></div>
+    </div>
+</div>
+<input type="hidden" id="userId" name="userId" value="{{@root.user._id}}" />
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1kQT0HXtFUXpp3CQnMBbnAvLzJ3C3_6c&callback=initMap" async
+    defer></script>

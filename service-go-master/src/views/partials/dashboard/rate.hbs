@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col ml-5 mt-5">
+        <div class="card-body ">
+            <div class="alert alert-success" id="show-success-rate" style="display: none"></div>
+            <table class="table table-active" border="1" style=" background-color: aliceblue;">
+                <tr class="bg-info">
+                    <th>Day</th>
+                    <th>Hour</th>
+                    <th>AUD(Hourly)</th>
+                </tr>
+                {{#each availability}}
+                <tr>
+                    <td>{{day}}</td>
+                    <td>{{hours}}</td>
+                    <td>
+                        <input type="text" id="rate{{id}}" value="{{amount}}" onchange="rateChange('{{id}}')" />
+
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        <div class="row" style="margin-top:-18px">
+            <div class="col" style="text-align: center;">
+                <button class="button btn btn-primary" onclick="changeRate()">Change Rate</button></a>
+            </div>
+        </div>
+    </div>
+</div>

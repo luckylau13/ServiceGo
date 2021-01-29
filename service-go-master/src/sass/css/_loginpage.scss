@@ -1,0 +1,36 @@
+// Login Page
+.login-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  .header-img {
+    margin: auto;
+    margin-bottom: 2rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    img {
+      height: 130px;
+      width: 232px;
+      margin: auto;
+      object-fit: none;
+    }
+  }
+  .card {
+    margin-top: 12rem !important;
+    width: 60%;
+    padding: 3rem;
+  }
+  .signin-btn {
+    margin-top: 2rem;
+    border-radius: 2rem;
+    color: #333 !important;
+    border-color: #f7500b !important;
+    margin: 0 !important;
+  }
+  p {
+    margin-top: 2rem;
+  }
+}

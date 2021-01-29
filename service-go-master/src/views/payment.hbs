@@ -1,0 +1,76 @@
+<div class="payment">
+    <img src="/images/service_white.png" class="profileImg" align="right">
+    <br /><br />
+    <h3>Hello! {{currentUser}}</h3>
+    <h3 class="title">Welcome the secure Payment Page</h4>
+        <p class="subtitle">Pay for your service</p>
+        <div>
+            <a href="/user/dashboard"><button id="pay-by-card" class="btn btn-info dashboard">Go to
+                    Dashboard</button></a>
+            <form action="/user/payment/paypal" method="POST">
+                <button id="pay-by-card" class="btn btn-success">Pay by Paypal!</button>
+            </form>
+            <form method="POST" action="/user/payment">
+                <script src='https://checkout.stripe.com/checkout.js' class="stripe-button"
+                    data-key='pk_test_T9gPBEkwGpay7KHvvjfvHSba00usuW1Lu3' data-amount=2000
+                    data-name="ServiceGo"
+                    data-description="Your payment is secure">
+                    </script>
+                <script>
+                    // Hide default stripe button
+                    document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+                </script>
+                {{!-- <input type="button" id="pay-by-card" class="btn btn-outline-dark text-white btn-lg" value="Pay By Card !"/> --}}
+
+                <button id="pay-by-card" class="btn btn-success">Pay by
+                    Card!</button>
+            </form>
+        </div>
+        {{message}}
+
+        {{!-- This is for displaying the payment in the dynamic way --}}
+        <table class="table table-condensed table-bordered table-striped table-hover">
+            <thead>
+                {{!-- Title for the table --}}
+                <tr class="table-success">
+                    <th>Customer Email</th>
+                    <th>Customer Name</th>
+                    <th>Service Name</th>
+                    <th>Service Provider Name</th>
+                    <th>Service Provider Email</th>
+                    <th>Amount</th>
+                    <th>Payment Status</th>
+                    <th>Payment Date</th>
+                    <th>Service Date</th>
+                    <th>Payment Location</th>
+                    <th></th>
+                </tr>
+            </thead>
+            {{#paymentHistory}}
+            <tbody>
+                <tr class="table-success">
+                    {{!-- Value for the table --}}
+                    <td>{{customerEmail}} </td>
+                    <td>{{customerName}} </td>
+                    <td>{{serviceName}}</td>
+                    <td>{{providerName}} </td>
+                    <td>{{providerEmail}} </td>
+                    <td>{{amount}} </td>
+                    <td>{{paymentStatus}} </td>
+                    <td>{{createdAt}} </td>
+                    <td>{{serviceDate}} </td>
+                    <td>{{serviceLocation}} </td>
+                    <td>
+                        <form action="/user/payment/cancelPayment/{{customerEmail}}" method="post">
+                            <input type="submit" class="btn btn-danger btn-xs" value="Cancel" />
+                        </form>
+                        {{!-- Sharing the Invoice for the other friends --}}
+                        {{>shareInvoice}}
+                    </td>
+                </tr>
+
+            </tbody>
+            {{/paymentHistory}}
+        </table>
+
+</div>

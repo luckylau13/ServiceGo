@@ -1,0 +1,142 @@
+<div class="dashboard">
+
+    {{#if profileCreated}}
+    {{#if isProvider}}
+    <div class="right-nav">
+        <img src="/images/service_white.png" class="profileImg">
+        <div class="side-thing" id="threeCards"></div>
+        <div class="btn-wrapper">
+            <button class="btn btn-primary" style="background-color: rgb(11, 180, 247) !important"
+                onclick="location.href ='/user/edit-profile'">Edit
+
+                Profile</button>
+            <button class="btn btn-primary" name="paymentHistoryBtn"
+                style="background-color: rgb(11, 180, 247) !important" onclick="location.href='/user/service'">Payment
+                History</button>
+            <button class="btn btn-primary " style="background-color: rgb(11, 180, 247) !important"
+                onclick="availability()">Availability</button>
+            <button class="btn btn-primary" style="background-color: rgb(11, 180, 247) !important"
+                onclick="rate()">Rate</button>
+            <button class="btn btn-primary " name="bookingHistoryBtn"
+                style="background-color: rgb(11, 180, 247) !important" onclick="bookingDetails()">Bookings</button>
+            <button class="btn btn-danger" name="btnLogout" onclick="location.href='/logout'">Logout</button>
+            <button class="btn btn-primary " style="background-color: rgb(11, 180, 247) !important"
+                onclick="review('{{@root.user.id}}')">
+                My Review</button>
+        </div>
+    </div>
+    <div class="main-dashboard">
+        {{>error-handler}}
+        <div class="dashboard-details" id="dashboard-details">
+            <div class="card" style="margin-top: 10rem; padding: 5rem;">
+                {{!-- <img src="/images/plumb.jpg" alt="Avatar"> --}}
+                <div class="container">
+                    <h4><b>Name: {{loggedUser.name}}</b></h4>
+
+                    <p>Your email address: {{loggedUser.email}}</p>
+                    <p>Your Address: {{loggedUser.address}}</p>
+                </div>
+
+            </div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+        {{>chat}}
+        <div class="review" id="review" style="display: none">
+            {{>dashboard/review}}
+        </div>
+        <div class="availability" id="availability" style="display: none">
+            {{>dashboard/availability}}
+        </div>
+        <div class="about" id="about" style="display: none">
+            {{>dashboard/about}}
+        </div>
+        <div class="rate" id="rate" style="display: none">
+            {{>dashboard/rate}}
+        </div>
+        <div class="bookings container" id="bookings" style="display: none">
+            {{>dashboard/bookingHistory}}
+        </div>
+        {{!-- <div class="bookings container" id="bookings" style="display: none">
+            {{>dashboard/paymentHistory}}
+        </div> --}}
+
+
+
+    </div>
+    {{else}}
+    <div class="right-nav">
+        <img src="/images/service_white.png" class="profileImg">
+
+        <div class="side-thing" id="threeCards"></div>
+
+        <div class="btn-wrapper">
+            <button class="btn btn-primary " name="bookingBtn" style="background-color: rgb(11, 180, 247) !important"
+                onclick="location.href ='/search'">Book Someone</button>
+            <button class="btn btn-primary" style="background-color: rgb(11, 180, 247) !important"
+                onclick="location.href ='/user/edit-profile'">Edit
+                Profile</button>
+            <button class="btn btn-primary" name="bookingHistoryBtn"
+                style="background-color: rgb(11, 180, 247) !important" onclick="location.href ='/user/history'">My
+                Bookings</button>
+            <button class="btn btn-primary" style="background-color: rgb(11, 180, 247) !important"
+                onclick="review('{{@root.user.id}}')">My Review</button>
+            <button class="btn btn-danger" name="btnLogout" onclick="location.href='/logout'">Logout</button>
+        </div>
+    </div>
+    <div class="bookings container" id="bookings">
+
+    </div>
+    {{!-->dashboard/bookings-of-customer--}}
+    <div class="dashboard-details" id="dashboard-details">
+        <div class="card" style="margin-top: 10rem; padding: 5rem;">
+            <div class="card-body">
+                <div class="container">
+                    <h4><b>Name: {{loggedUser.name}}</b></h4>
+
+                    <h8>Email: &nbsp;&nbsp;{{loggedUser.email}}</h8><br />
+                    <h8>Address: &nbsp;{{loggedUser.address}}</h8>
+                </div>
+            </div>
+        </div>
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
+    {{>chat}}
+    <div class="review" id="review" style="display: none">
+        {{>dashboard/review}}
+    </div>
+    <div class="availability" id="availability" style="display: none">
+        {{>dashboard/availability}}
+    </div>
+    <div class="about" id="about" style="display: none">
+        {{>dashboard/about}}
+    </div>
+    <div class="rate" id="rate" style="display: none">
+        {{>dashboard/rate}}
+    </div>
+    <div class="bookings container" id="bookings" style="display: none">
+        {{>dashboard/bookingHistory}}
+    </div>
+
+    {{/if}}
+    {{else}}
+    <div class="right-nav" style="height: 100vh;">
+        <img src="/images/service_white.png" class="profileImg">
+
+    </div>
+    <div class="card container" style="width: 100%; height: 100%; margin-top: 10rem;">
+        <div class="left">
+            <h1>Hey! You have not yet created your profile.</h1>
+            <p class="lead">
+                Create your profile first.
+            </p>
+            <button class="btn btn-primary" onclick="window.location.href = '/user/create-profile'">Create
+                Profile</button>
+        </div>
+    </div>
+    {{/if}}
+
+</div>
+
+<script src="/javascripts/dashboard.js"></script>

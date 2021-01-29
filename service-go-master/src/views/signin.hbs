@@ -1,0 +1,47 @@
+<div class="login-page register-page">
+    <div>
+    </div>
+    <div class="card mt-4">
+        <div class="header-img">
+            <img src="images/service.png" onclick="window.location.href = '/'" style="cursor: pointer;" alt="Logo"
+                class="logo">
+        </div>
+        <div class="card-body px-lg-5">
+            {{>error-handler}}
+            <form class="text-center" style="color: #757575;" action="/signin" method="POST">
+
+                <div class="md-form">
+                    <input type="text" id="name" name="name" value="{{name}}" class="form-control"
+                        placeholder="Enter your full name">
+
+                </div>
+
+                <div class="md-form">
+                    <input type="text" id="email" name="email" value="{{email}}" class="form-control"
+                        placeholder="Enter Email Address">
+
+                </div>
+
+                <div class="md-form">
+                    <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Enter password">
+
+                </div>
+
+                <div class="md-form">
+                    <input type="password" id="password2" name="password2" class="form-control"
+                        placeholder="Confirm password">
+
+                </div>
+
+                <button class="btn btn-outline-info btn-rounded signin-btn" type="submit">Sign in</button>
+                <p>Already a member?
+                    <a href="/login">Login</a>
+                </p>
+            </form>
+
+
+        </div>
+    </div>
+    <div></div>
+</div>

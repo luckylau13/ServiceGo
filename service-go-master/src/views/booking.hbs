@@ -1,0 +1,57 @@
+<style>
+
+</style>
+<div class="row booking">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <form id="regForm" action="/user/book" method="post">
+            <div class="card mt-5">
+                <div class="lead card-header orange white-text text-center py-4">
+                    Please complete the forms before booking {{#each serviceProvider}} <span>
+                        {{name}}.
+                    </span> {{/each}}
+                </div>
+                <div class="card-body">
+                    <div style="text-align:center;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
+                    <div class="tab">
+                        {{>booking-form/date-and-time}}
+                    </div>
+                    <div class="tab">
+                        {{>booking-form/details}}
+                    </div>
+                    <div class="tab">
+                        {{>booking-form/location}}
+                    </div>
+                    <div class="card-footer">
+                        <div style="overflow:auto;">
+
+                            <div style="float:left;">
+                                <a href="/search" type="button" class="btn btn-danger">Cancel</a>
+                            </div>
+                            <div style="float:right;">
+                                <button type="button" class="btn orange text-white" id="prevBtn"
+                                    onclick="nextPrev(-1)">Previous</button>
+                                <button type="button" class="btn orange text-white" id="nextBtn"
+                                    onclick="nextPrev(1)">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </form>
+    </div>
+    <div class="col-1"></div>
+
+</div>
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1kQT0HXtFUXpp3CQnMBbnAvLzJ3C3_6c&callback=initLocationMap"
+    async defer></script>
+
+<script src="/javascripts/location.js"></script>
+
+<script src="/javascripts/booking.js"></script>

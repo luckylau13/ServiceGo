@@ -1,0 +1,41 @@
+{{#if messages.error}}
+<div class="alert alert-danger">
+    {{{messages.error}}}
+</div>
+{{/if}}
+
+{{#if messages.success}}
+<div class="alert alert-success">
+    {{{messages.success}}}
+</div>
+{{/if}}
+
+
+{{#each errors}}
+
+{{#ifeq param "name"}}
+<div class="alert alert-danger">Name field should not be empty.</div>
+{{/ifeq}}
+
+
+
+{{#ifeq param "already"}}
+<div class="alert alert-danger">This email address is already registered.</div>
+{{/ifeq}}
+
+{{#ifeq param "email"}}
+<div class="alert alert-danger">Please enter valid email address.</div>
+{{/ifeq}}
+
+{{#ifeq param "password"}}
+<div class="alert alert-danger">Password must be greater than 5 characters.</div>
+{{/ifeq}}
+{{#ifeq param "password2"}}
+<div class="alert alert-danger">Two passowrd fields should match</div>
+{{/ifeq}}
+
+{{#ifeq param "auth"}}
+<div class="alert alert-danger">You are not authorized to go there. Please sign in first.</div>
+{{/ifeq}}
+
+{{/each}}

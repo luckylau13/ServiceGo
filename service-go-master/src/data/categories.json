@@ -1,0 +1,30 @@
+[
+  {
+    "type": "Cleaner",
+    "demand": "High"
+  },
+  {
+    "type": "Gardener",
+    "demand": "High"
+  },
+  {
+    "type": "Plumber",
+    "demand": "High"
+  },
+  {
+    "type": "Electrician",
+    "demand": "High"
+  },
+  {
+    "type": "Carpainter",
+    "demand": "High"
+  },
+  {
+    "type": "Painter",
+    "demand": "Medium"
+  },
+  {
+    "type": "Pest Controller",
+    "demand": "Low"
+  }
+]

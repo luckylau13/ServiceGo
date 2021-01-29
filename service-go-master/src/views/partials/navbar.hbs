@@ -1,0 +1,20 @@
+<div class="navbar navbar-dark transparent navbar-container">
+    <div class="image-container">
+        <img src="images/service.png" alt="Logo" class="logo">
+    </div>
+
+    {{#if user}}
+    <div class="nav nav-container">
+        <div class="btn btn-outline-warning btn-rounded waves-effect signin"
+            onclick="window.location.href = '/user/dashboard'">
+            Dashboard</div>
+    </div>
+    {{else}}
+    <div class="nav nav-container">
+        <div style="margin: auto; cursor:pointer;">Contact Us</div>
+        <div style="margin: auto;cursor:pointer;" onclick="window.location.href = '/login'">Login</div>
+        <div class="btn btn-outline-warning btn-rounded waves-effect signin" onclick="window.location.href = '/signin'">
+            Sign Up</div>
+    </div>
+    {{/if}}
+</div>

@@ -1,0 +1,229 @@
+<link rel="stylesheet" type="text/css" href="/css/progressBar.css" />
+<div class="container">
+    <div class="row mt-5" style="text-align: center; ">
+        <div class="col mt-5">
+            <div class="card mt-5">
+                <div class="card-title bg-info" style="color:white;">
+                    <h3 class="mt-3" style="font-weight:bold;">Booking History</h3>
+                    <hr>
+                </div>
+                {{#if bookings}}
+                {{!-tabs of the page (Upcoming, In Progress, Completed, Cancelled)}}
+                <div class="w-100">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="upcomingBooking-tab" data-toggle="tab"
+                                    href="#upcomingBooking" role="tab" aria-controls="upcomingBooking"
+                                    aria-selected="true">Upcoming</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="inProgress-tab" name="progress" data-toggle="tab"
+                                    href="#inProgress" role="tab" aria-controls="inProgress" aria-selected="false">In
+                                    Progress</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab"
+                                    aria-controls="completed" aria-selected="false">Completed</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="cancelled-tab" data-toggle="tab" href="#cancelled" role="tab"
+                                    aria-controls="cancelled" aria-selected="false">Cancelled </a>
+                            </li>
+                        </ul>
+                    </div>
+                
+                <div class="tab-content" id="myTabContent">
+                     {{!-Start of "Upcoming" pag the and the content}}
+                     <div class="tab-pane fade show active" id="upcomingBooking" role="tabpanel" aria-labelledby="upcomingBooking-tab">
+                            <div class = "col">
+                                    <table class="table table-condensed table-bordered table-striped table-hover w-100">
+                                       
+                                        <thead>
+                                            <tr class="table-info">
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Service Type</th>                           
+                                                <th>Status</th>
+                                                <th></th> 
+                                            </tr>
+                                        </thead>   
+                                         {{#each bookings}}
+                                         {{#ifeq status "Not started."}}
+                                        <tbody>
+
+                                        <tr id="{{_id}}">
+                                            <td class="date">{{date}}</td>
+                                            <td>{{time}}</td>
+                                            <td>{{type}}</td>
+                                            <td style="color: green">{{status}}</td>
+                                            {{!-- <button class="btn" name="seeMoreBtn"> --}}
+                                            <td class="seeMoreBtn"><a href="./history/bookingDetails/{{_id}}"
+                                                    style="color:brown;" class="btn" id="seeMoreBtn">See
+                                                    More...</a></td>
+                                            {{!-- </button> --}}
+                                        </tr>
+                                    </tbody>
+                                    {{/ifeq}}
+
+                                    {{/each}}
+                                </table>
+
+                                <div class="row ml-5">
+                                    <div class="col ml-5 mb-5">
+                                        <button class="btn btn-info" onclick="location.href ='/user/dashboard'">Back to
+                                            Profile</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                     </div>
+                {{!-finished implementation of Upcoming tab}}
+                  
+                  {{!-Start of "InProgress" pag the and the content}}
+                    <div class="tab-pane fade" id="inProgress" role="tabpanel" aria-labelledby="inProgress-tab">
+                        <div class="col">
+                                    <table class="table table-condensed table-bordered table-striped table-hover">
+                                       
+                                        <thead>
+                                            <tr class="table-info">
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Service Type</th>                           
+                                                <th>Status</th>
+                                                <th></th>
+                                                <th></th> 
+                                            </tr>
+                                        </thead>   
+                                         {{#each bookings}}
+                                         {{#ifeq status "In Progress"}}
+                                        <tbody>
+
+                                        <tr id="{{_id}}">
+                                            <td class="date">{{date}}</td>
+                                            <td>{{time}}</td>
+                                            <td>{{type}}</td>
+                                            <td style="color:orchid">{{status}}</td>
+                                            <td><a href="./history/bookingDetails/{{_id}}" style="color:brown;">See
+                                                    More...</a></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                    {{/ifeq}}
+
+                                    {{/each}}
+                                </table>
+                                <div class="row ml-5">
+                                    <div class="col ml-5 mb-5">
+                                        <button class="btn btn-info" onclick="location.href ='/user/dashboard'">Back to
+                                            Profile</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {{!-finished implementation of InProgress tabs}}
+
+                    {{!-Start of "Completed" pag the and the content}}
+                     <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+                        <div class="col">
+                                    <table class="table table-condensed table-bordered table-striped table-hover">
+                                        <thead>
+                                            <tr class="table-info">
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Time</th>
+                                                <th scope="col">Service Type</th>                           
+                                                <th scope="col">Status</th>
+                                                <th scope="col"></th> 
+                                            </tr>
+                                        </thead>   
+                                          {{#each bookings}}
+                                         {{#ifeq status "Completed"}}
+                                        <tbody>
+
+                                        <tr id="{{_id}}">
+                                            <td scope="row" class="date">{{date}}</td>
+                                            <td>{{time}}</td>
+                                            <td>{{type}}</td>
+                                            <td style="color:blue">{{status}}</td>
+                                            <td><a href="./history/bookingDetails/{{_id}}" style="color:brown;">See
+                                                    More...</a></td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                       {{/ifeq}}
+                                        {{/each}}
+            
+
+                                         </table>  
+                            <div class="row ml-5">
+                                <div class="col ml-5 mb-5">
+                                    <button class="btn btn-info" onclick="location.href ='/user/dashboard'">Back to Profile</button>
+                                </div>
+                            </div> 
+                        </div>         
+                    </div>
+                     {{!-finished implementation of Completed tab}}
+
+                     {{!-Start of "Cancelled" pag the and the content}}
+                     <div class="tab-pane fade" id="cancelled" role="tabpanel" aria-labelledby="cancelled-tab">
+                        <div class="col">
+                                    <table class="table table-condensed table-bordered table-striped table-hover">
+                                       
+                                        <thead>
+                                            <tr class="table-info">
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Service Type</th>                           
+                                                <th>Status</th>
+                                                <th></th> 
+                                            </tr>
+                                        </thead>   
+                                         {{#each bookings}}
+                                         {{#ifeq status "Cancelled"}}
+                                        <tbody>
+                         <tr id="{{_id}}">
+                                            <td class="date">{{date}}</td>
+                                            <td>{{time}}</td>
+                                            <td>{{type}}</td>
+                                            <td style="color: red">{{status}}</td>
+                                            <td><a href="./history/bookingDetails/{{_id}}" style="color:brown;">See
+                                                    More...</a></td>
+                                        </tr>
+
+                                        </tbody>
+                                        {{/ifeq}}
+                                        {{/each}} 
+                                         </table>  
+
+                        <div class="row ml-5">
+                                <div class="col ml-5 mb-5">
+                                    <button class="btn btn-info" onclick="location.href ='/user/dashboard'">Back to Profile</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     {{!-finished implementation of Cancelled tab}}
+                </div>
+               </div>
+            </div>
+            {{!- This page is for the user who does not have any booking}}
+            {{else}}
+            <div class="row mt-5">
+                <div class="col mt-5"  style="height:350px;">
+                    <h4>You do not have any booking.</h4>
+                    <button class="btn btn-primary mt-3" style="background-color: rgb(11, 180, 247) !important"
+                onclick="location.href ='/search'">Book Someone</button>
+                    <button class="btn btn-info mt-3" onclick="location.href ='/user/dashboard'">Back to Profile</button>
+                                
+
+                </div>
+            </div>
+        </div>
+      </div>
+   </div>
+ </div>
+    {{/if}}

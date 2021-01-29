@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "day": "Monday",
+    "hours": "7:30am - 5:00pm",
+    "amount": "$25",
+    "available": true
+  },
+  {
+    "id": 2,
+    "day": "Tueday",
+    "hours": "7:30am - 5:00pm",
+    "amount": "$25",
+    "available": true
+  },
+  {
+    "id": 3,
+    "day": "Wednesday",
+    "hours": "7:30am - 5:00pm",
+    "amount": "$25",
+    "available": true
+  },
+  {
+    "id": 4,
+    "day": "Thursday",
+    "hours": "7:30am - 5:00pm",
+    "amount": "$25",
+    "available": true
+  },
+  {
+    "id": 5,
+    "day": "Friday",
+    "hours": "7:30am - 5:00pm",
+    "amount": "$25",
+    "available": true
+  },
+  {
+    "id": 6,
+    "day": "Saturday",
+    "hours": "11:30am - 4:00pm",
+    "amount": "$40",
+    "available": true
+  }
+]

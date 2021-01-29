@@ -1,0 +1,42 @@
+[
+  {
+    "id": "5d59f33d0e20831c64a14754",
+    "name": "Evil Morty",
+    "profileImg": "images/rm/morty.png",
+    "location": "Smith Residence",
+    "Rating": "3",
+    "Status": "Online",
+    "type": "cleaner",
+    "handler": "evilmorty"
+  },
+  {
+    "id": "5d52f33d0e60831c64a14754",
+    "name": "Rick Sanchez",
+    "profileImg": "images/rm/rick.png",
+    "location": "Smith Residence",
+    "Rating": "5",
+    "Status": "Offline",
+    "type": "cleaner",
+    "handler": "ricksanchez"
+  },
+  {
+    "id": "5d59f33f0e60831c64a14754",
+    "name": "Jery Smith",
+    "profileImg": "images/rm/jery.png",
+    "location": "Smith Residence",
+    "Rating": "1",
+    "Status": "Busy",
+    "type": "cleaner",
+    "handler": "jerysmith"
+  },
+  {
+    "id": "5d51f33d0e60831c64a14754",
+    "name": "Mr Meeseeks",
+    "profileImg": "images/rm/meeseek.png",
+    "location": "IDK",
+    "Rating": "3",
+    "Status": "Online",
+    "type": "cleaner",
+    "handler": "mrmeeseeks"
+  }
+]

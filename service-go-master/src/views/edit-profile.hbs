@@ -1,0 +1,150 @@
+<div class="create-profile">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <form method="POST" action="/user/edit-profile">
+                <div class="card mt-5">
+                    <div class="card-header info-color-dark white-text text-center py-4">
+                        <h3> Edit Profile</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="firstName">Name</label>
+                                    <input class="form-control" id="firstName" type="text" name="name"
+                                        value="{{profile.name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="handle">Handle</label>
+                                    <input class="form-control" id="handle" type="text" name="handle"
+                                        placeholder="Unique handler for your account..." value="{{profile.handle}}"
+                                        required>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <img alt="User Pic" style="height: 10rem; width: 10rem;"
+                                    src="/photos/{{profile.photoName}}" id="profile-image"
+                                    class="img-circle img-responsive"
+                                    onclick="$('#profile-image-upload').trigger('click')">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input class="form-control" id="phone" placeholder="eg.0412345..." name="phone"
+                                        value="{{profile.phone}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input class="form-control" id="address" type="text" name="address"
+                                        onFocus="geolocate()" value="{{profile.address}}">
+                                </div>
+                            </div>
+                            {{!--<div class="col-lg-2">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">City</label>
+                                    <input class="form-control" id="exampleInputPassword1" type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <div class="form-group">
+                                    <label>State</label>
+                                    <select class="form-control">
+                                        <option name="state" value="none"></option>
+                                        <option name="state" value="ACT">ACT</option>
+                                        <option name="state" value="NSW">NSW</option>
+                                        <option name="state" value="NT">NT</option>
+                                        <option name="state" value="QLD">QLD</option>
+                                        <option name="state" value="SA">SA</option>
+                                        <option name="state" value="TAS">TAS</option>
+                                        <option name="state" value="VIC">VIC</option>
+                                        <option name="state" value="WA">WA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Postcode</label>
+                                    <input class="form-control" id="exampleInputPassword1" type="number">
+                                </div>
+                            </div> --}}
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="checkbox" name="who" id="who" onclick="onClickWho()"
+                                        {{#if profile.provider}} checked="checked" {{/if}} />
+                                    <label for="who">Are you a service provider?</label>
+                                </div>
+                            </div>
+                            <div class="col-12 sp-section" {{#unless profile.provider}} style="display: none"
+                                {{/unless}}>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label>Service Category</label>
+                                            <select class="form-control" name="category">
+                                                <option value=""></option>
+                                                {{#each categories}}
+                                                <option value="{{type}}" {{#ifeq type ../profile.category}}
+                                                    selected="selected" {{/ifeq}}>{{type}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" style="color: aliceblue;" class="btn info-color-dark">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <button type="cancel" class="btn btn btn-danger"
+                onclick="deleteMyProfile('{{profile.email}}')">Delete</button>
+
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <form id="uploadForm" action="/user/profile/image?email={{profile.email}}" method="POST"
+        enctype="multipart/form-data">
+        <input type="file" id="profile-image-upload" class="hidden" name="profileImage"
+            onchange="$('#uploadForm').submit()"></input>
+    </form>
+</div>
+<script src="/javascripts/create-profile.js"></script>
+<script>
+    var autocomplete;
+    function initAutoAddress() {
+        // Create the autocomplete object, restricting the search predictions to
+        // geographical location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('address'), { types: ['geocode'] });
+        autocomplete.setFields(['address_component']);
+    }
+
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var circle = new google.maps.Circle(
+                    { center: geolocation, radius: position.coords.accuracy });
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1kQT0HXtFUXpp3CQnMBbnAvLzJ3C3_6c&libraries=places&callback=initAutoAddress"
+    async defer></script>

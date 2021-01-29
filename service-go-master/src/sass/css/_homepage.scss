@@ -1,0 +1,35 @@
+// Homepage
+.homepage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .logo {
+    margin-left: 0.3rem;
+    padding: 0;
+  }
+  .navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .hero-image {
+    margin-right: 5rem;
+    margin-top: 2rem;
+
+    // margin: auto;
+    height: 35%;
+    width: 35%;
+  }
+
+  .main-content {
+    margin-top: 10rem;
+    margin-left: 10rem;
+    padding: 2rem;
+    h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #515151;
+    }
+  }
+}

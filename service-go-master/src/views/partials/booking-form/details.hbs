@@ -1,0 +1,21 @@
+<div class="lead" style="text-align: left;">Just some few steps {{@root.user.name}}...</div>
+<div class="lead" style="text-align: left;">Check the details below if they are correct or not.</div>
+<div class="details-container">
+    <div class="providers-details card">
+        <div class="name-of-provider">Name: {{serviceProvider.name}}</div>
+        <div class="rating-of-provider">Rating: {{serviceProvider.rating}}</div>
+        <div class="type-of-provider">Type: {{serviceProvider.category}}</div>
+        <div class="price-of-provider">Price: $20 per hour</div>
+        <div>Date: </div>
+        <div>Time: </div>
+
+        <input type="hidden" name="type" value="{{serviceProvider.category}}">
+        <input type="hidden" name="location" value="{{serviceProvider.address}}">
+        <input type="hidden" name="service_provider" value="{{serviceProvider.userId}}">
+        <input type="hidden" name="customer" value="{{@root.user.id}}">
+
+    </div>
+
+    <img src="/images/default.png" style="border-radius: 11rem; height: 10rem;width: 10rem;">
+
+</div>

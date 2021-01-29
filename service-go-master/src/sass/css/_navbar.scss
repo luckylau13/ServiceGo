@@ -1,0 +1,36 @@
+// Bootstrap
+.navbar {
+  box-shadow: none !important;
+}
+
+.navbar {
+  .image-container {
+    margin-left: 6rem;
+    height: 3rem;
+
+    img {
+      // max-height: 100%;
+      height: 77px;
+      width: 186px;
+      margin: auto;
+      object-fit: none;
+    }
+  }
+  .nav-container {
+    margin-top: 2rem;
+
+    color: white;
+    width: 28rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .signin {
+    border-radius: 2rem;
+    color: white !important;
+    border-color: #f7500b !important;
+    margin: 0 !important;
+    // padding: 0;
+    // background-color: #f7500b;
+  }
+}

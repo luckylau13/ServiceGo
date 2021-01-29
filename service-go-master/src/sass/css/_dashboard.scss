@@ -1,0 +1,52 @@
+// Dashboard
+.dashboard {
+  display: flex;
+
+  .right-nav {
+    background-color: #333333;
+    height: 100vh;
+    width: 20% !important;
+    border-radius: 0 0.5rem 0.5rem 0;
+    button {
+      width: 10rem;
+      margin-top: 1rem;
+    }
+  }
+  .left-body {
+    margin-top: 10rem;
+    width: 80%;
+  }
+  .profileImg {
+    margin-left: 3.5rem;
+    margin-top: 3rem;
+  }
+  .btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.main-dashboard {
+  width: 90%;
+  img {
+    border-radius: 3rem;
+    height: 5rem;
+  }
+}
+.bookings-text {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.bookings {
+  display: flex;
+  justify-content: stretch;
+  padding-left: 2rem;
+  padding-top: 2rem;
+}
+
+.bookings-card {
+  width: 100%;
+}

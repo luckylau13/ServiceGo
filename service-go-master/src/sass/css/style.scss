@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,900&display=swap");
+
+// Imports
+@import "./variables";
+@import "./homepage";
+@import "./navbar";
+@import "./searchpage";
+@import "./loginpage";
+@import "./registerpage";
+@import "./dashboard";
+@import "./profile";
+@import "./booking";
+
+// Root Elements
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans", sans-serif !important;
+  &.home {
+    background: url("/images/background.svg") no-repeat;
+    background-size: cover;
+  }
+}
+
+.progress {
+  width: 8rem;
+  height: 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+// Progress bar
+.progress-not {
+  width: 0;
+  height: 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: grey;
+}
+
+.progress-just {
+  width: 2rem;
+  height: 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: green;
+}
+
+.progress-in {
+  width: 4rem;
+  height: 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: green;
+}
+
+.progress-comp {
+  width: 8rem;
+  height: 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: green;
+}

@@ -1,0 +1,31 @@
+<div class="login-page">
+    <div>
+    </div>
+    <div class="card mt-4">
+        <div class="header-img">
+            <img src="/images/service.png" onclick="window.location.href = '/'" style="cursor: pointer;" alt="Logo"
+                class="logo">
+        </div>
+        <div class="card-body px-lg-5">
+            {{>error-handler}}
+            <form class="text-center" style="color: #757575;" action="/login" method="POST">
+
+                <div class="md-form">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                </div>
+
+                <div class="md-form">
+                    <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Password">
+                </div>
+                <button class="btn btn-outline-info btn-rounded signin-btn" type="submit">Sign in</button>
+                <p>Not a member?
+                    <a href="/signin">Sign Up</a>
+                </p>
+            </form>
+
+
+        </div>
+    </div>
+    <div></div>
+</div>

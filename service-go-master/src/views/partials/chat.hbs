@@ -1,0 +1,57 @@
+<style>
+    #message-container div {
+        background-color: #ccc;
+        padding: 5px;
+    }
+
+    #message-container div:nth-child(2n) {
+        background-color: #fff;
+    }
+
+    .chat-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #f7500b;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
+    }
+
+    .my-float {
+        color: #FFF;
+        margin-top: 22px;
+    }
+
+    #show-chat {
+        position: fixed;
+        width: 230px;
+        bottom: 110px;
+        right: 13px;
+    }
+</style>
+<div id="show-chat" style="display: none;">
+    <div class="card h-40 w-20 p-1">
+        <div id="message-container"></div>
+        <form id="send-container">
+            {{#if user}}
+            <input type="hidden" value="{{user.name}}" id="name-of-user">
+            {{else}}
+            <input type="hidden" value="Tero Bau" id="name-of-user">
+            {{/if}}
+            <input type="text" id="message-input">
+            <button type="submit" id="send-button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
+    </div>
+
+</div>
+
+<a class="chat-float" onclick="showChat()">
+    <i class="far fa-comments my-float"></i>
+</a>
+<script src="/javascripts/chat.js">
+
+</script>

@@ -1,0 +1,53 @@
+<div class="payment">
+    <img src="/images/service_white.png" class="profileImg" align="right">
+    <br /><br />
+    <h3>Hello! {{currentUser}}</h3>
+    <h3 class="title">Welcome to your Payment History Page</h4>
+        <a href="/user/dashboard"><button id="pay-by-card" class="btn btn-info">Go to
+                Dashboard</button></a>
+        {{!-- This is for displaying the payment in the dynamic way --}}
+        <table class="table table-condensed table-bordered table-striped table-hover">
+            <thead>
+                {{!-- Title for the table --}}
+                <tr class="table-success">
+                    <th>Customer Email</th>
+                    <th>Customer Name</th>
+                    <th>Service Name</th>
+                    <th>Service Provider Name</th>
+                    <th>Service Provider Email</th>
+                    <th>Amount</th>
+                    <th>Payment Status</th>
+                    <th>Payment Date</th>
+                    <th>Service Date</th>
+                    <th>Payment Location</th>
+                    <th></th>
+                </tr>
+            </thead>
+            {{#paymentHistory}}
+            <tbody>
+                <tr class="table-success">
+                    {{!-- Value for the table --}}
+                    <td>{{customerEmail}} </td>
+                    <td>{{customerName}} </td>
+                    <td>{{serviceName}}</td>
+                    <td>{{providerName}} </td>
+                    <td>{{providerEmail}} </td>
+                    <td>{{amount}} </td>
+                    <td>{{paymentStatus}} </td>
+                    <td>{{createdAt}} </td>
+                    <td>{{serviceDate}} </td>
+                    <td>{{serviceLocation}} </td>
+                    <td>
+                        <form action="/user/payment/cancelProviderPayment/{{customerEmail}}" method="post">
+                            <input type="submit" class="btn btn-danger btn-xs" name="cancelPayment" value="Cancel" />
+                        </form>
+                        {{!-- Sharing the Invoice for the other friends --}}
+                        {{>shareProviderInvoice}}
+                    </td>
+                </tr>
+
+            </tbody>
+            {{/paymentHistory}}
+        </table>
+
+</div>

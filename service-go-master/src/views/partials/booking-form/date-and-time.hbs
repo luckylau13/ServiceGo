@@ -1,0 +1,27 @@
+<div class="lead" style="text-align: left;">Just some few steps {{@root.user.name}}...</div>
+<div class="lead" style="text-align: left;">Please select your preferred date and time.</div>
+
+<div class="alert alert-danger" id="date-err" style="display: none;">Date and Time fields should not be empty.</div>
+
+
+<div class="date-and-time">
+    <div class="md-form">
+        <input class="form-control" name="date" type="text" id="date" placeholder="Select Date" value="{{date}}">
+    </div>
+    <div class="md-form">
+        <input class="form-control" name="time" type="text" id="time" placeholder="Select Time" value="{{time}}">
+    </div>
+</div>
+
+<script>
+    flatpickr("#date", {
+        minDate: "today",
+        dateFormat: "Y-m-d",
+    });
+    flatpickr("#time", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
+    });
+
+</script>

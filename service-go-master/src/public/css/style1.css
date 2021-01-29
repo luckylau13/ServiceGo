@@ -1,0 +1,79 @@
+table {
+    border: 1px;
+    height: 200px;
+}
+
+td {
+    margin-bottom: 20px;
+}
+
+#button1 {
+    color: #ffffff;
+    background-color: black;
+    border-color: black;
+}
+
+header {
+    height: 50px;
+    line-height: 50px;
+    padding: 10px 0;
+}
+
+header .header-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.my-navbar {
+    position: absolute;
+    width: 200px;
+}
+
+.my-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.main {
+    position: relative;
+    margin-left: 200px;
+    padding: 0 20px;
+}
+
+.liStyle {
+    height: 75px;
+    padding-top: 10px;
+    padding-left: 50px;
+    font-size: large;
+}
+
+input.hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+#profile-image1 {
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #03b1ce;
+}
+
+.tital {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.bot-border {
+    border-bottom: 1px #f8f8f8 solid;
+    margin: 5px 0 5px 0
+}

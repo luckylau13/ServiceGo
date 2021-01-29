@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each profiles}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{name}}</td>
+      <td>{{email}}</td>
+      <td>{{address}}</td>
+      <td>
+          <button class="btn btn-info btn-sm" onclick="window.location.href='/profiles/{{email}}'">Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteProfile('{{email}}')">Delete</button>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<script src="/javascripts/profileList.js"></script>

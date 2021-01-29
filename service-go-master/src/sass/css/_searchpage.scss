@@ -1,0 +1,84 @@
+.searchpage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .search-logo-container {
+    margin-left: 0.6rem;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: flex-start;
+
+    div:nth-child(1) {
+      height: 3rem;
+      width: 3rem;
+      img {
+        background-position: center;
+        object-fit: cover;
+      }
+    }
+  }
+  .left-form {
+    background-color: #333333;
+    position: fixed;
+    height: 100vh;
+    width: 30%;
+    border-radius: 0 0.5rem 0.5rem 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-display {
+    margin-left: 30%;
+    h1 {
+      font-size: 2rem;
+      font-weight: 400;
+      color: #515151;
+      text-align: center;
+    }
+  }
+
+  .search-form {
+    color: white;
+    margin-top: 1rem;
+    padding: 3rem;
+  }
+
+  .profile-list-container {
+    margin-left: 30%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    .each-profile {
+      width: 27rem;
+      display: flex;
+      flex-direction: row;
+    }
+    img {
+      border-radius: 3rem;
+      height: 5rem;
+    }
+  }
+}
+
+.t-maps {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#searchmap {
+  height: 0%;
+  width: 70%;
+  overflow: hidden;
+  position: absolute;
+}
+.gmnoprint {
+  display: none;
+}

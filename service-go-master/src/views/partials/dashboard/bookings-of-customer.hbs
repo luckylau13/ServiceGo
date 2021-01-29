@@ -1,0 +1,34 @@
+<div class="card bookings-card">
+    {{#if bookings}}
+    {{>error-handler}}
+    <p class="lead bookings-text">Here is Past Booking!</p>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Status</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each bookings}}
+            <tr id="{{_id}}">
+                <td>{{@root.actualDate}}</td>
+                <td>{{time}}</td>
+                <td>{{status}}</td>
+                <td>{{#ifeq status "Not started."}}<button class='btn btn-danger'
+                        onclick='cancelBooking("{{_id}}")'>Cancel</button>{{/ifeq}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{else}}
+<div class="container" style="text-align: center; margin-top: 2rem;">
+    <img src="/images/cleanerr.jpg" alt="Cleaner" style="height: 34rem; width: 50rem;">
+    <h2 style="margin-top: 1rem;">Sorry you dont have any bookings yet!</h2>
+    <p>Book Someone first!</p>
+</div>
+{{/if}}
